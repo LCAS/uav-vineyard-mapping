@@ -2,8 +2,13 @@
 
 `uav-vineyard-mapping` is a publication-facing export of the UAV vineyard mapping and robotic-navigation workspace used for the experiments reported in "An Integrated Aerial-Ground System for Vineyard Mapping and Robotic Navigation".
 
+## Pipeline Demo
+
+The video below shows an end-to-end example of the interactive workflow supported by this repository: loading UAV images from a local disk folder, running an inference model to obtain vineyard detections, automatically filtering those detections, manually refining the result where needed, and exporting a topological navigation map for downstream robotic use.
+
 https://github.com/user-attachments/assets/fadc2bb0-dd91-4a22-bcf9-186bb117a595
 
+This demo is meant to give a quick overview of the full processing chain. The sections below then point to the main scripts, curated outputs, and external datasets needed to inspect or reproduce individual stages of that pipeline.
 
 This release focuses on:
 
@@ -71,6 +76,8 @@ Representative entry scripts:
 - `python scripts/gaussian_heatmap_resnet/train_resnet_validation_yolo_labels.py`
 - `python scripts/gaussian_heatmap_resnet/inference_segmentation_yolo_labels_full.py`
 - `python scripts/generate_topological_map.py`
+
+The pipeline demo above is the most compact overview of how these stages fit together in practice, from raw UAV imagery through inference, cleanup, manual refinement, and final topological-map generation.
 
 All Python entrypoints now live under `scripts/`. The scripts are preserved as research-oriented entrypoints rather than repackaged into a formal Python library. Some scripts use hard-coded relative paths and may need local path edits depending on how you stage imagery, weights, and API credentials.
 
