@@ -6,9 +6,11 @@ from pathlib import Path
 
 from cluster_poles import cluster_poles
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
 # Public sample bundled with this release
-input_file = "examples/outputs/riseholme_detected_pole_coordinates.geojson"
-output_dir = Path("results/generated")
+input_file = REPO_ROOT / "examples" / "outputs" / "riseholme_detected_pole_coordinates.geojson"
+output_dir = REPO_ROOT / "results" / "generated"
 output_dir.mkdir(parents=True, exist_ok=True)
 output_file = output_dir / "riseholme_detected_pole_coordinates_clustered.geojson"
 

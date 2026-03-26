@@ -19,9 +19,8 @@ This release intentionally does not include:
 
 ## Repository Layout
 
-- `cluster_poles.py`: standalone clustering utility for duplicate pole detections
-- `run_clustering_example.py`: runnable example using the bundled Riseholme sample output
-- `scripts/`: research scripts for training, inference, clustering, calibration, and map generation
+- `scripts/`: canonical home for all Python entrypoints, active workflows, optional toolkits, and archived research code
+- `scripts/README.md`: navigation guide for active, optional, and archived script areas
 - `results/`: curated experiment summaries and provenance/config files
 - `examples/`: a few public sample images and lightweight output artifacts
 - `ground_truth/riseholme/`: public Riseholme reference files used by several scripts
@@ -64,13 +63,13 @@ Start with the curated outputs:
 
 Representative entry scripts:
 
-- `python cluster_poles.py examples/outputs/riseholme_detected_pole_coordinates.geojson`
-- `python run_clustering_example.py`
+- `python scripts/cluster_poles.py examples/outputs/riseholme_detected_pole_coordinates.geojson`
+- `python scripts/run_clustering_example.py`
 - `python scripts/gaussian_heatmap_resnet/train_resnet_validation_yolo_labels.py`
 - `python scripts/gaussian_heatmap_resnet/inference_segmentation_yolo_labels_full.py`
 - `python scripts/generate_topological_map.py`
 
-The scripts are preserved as research-oriented entrypoints rather than repackaged into a formal Python library. Some scripts use hard-coded relative paths and may need local path edits depending on how you stage imagery, weights, and API credentials.
+All Python entrypoints now live under `scripts/`. The scripts are preserved as research-oriented entrypoints rather than repackaged into a formal Python library. Some scripts use hard-coded relative paths and may need local path edits depending on how you stage imagery, weights, and API credentials.
 
 ## Notes
 

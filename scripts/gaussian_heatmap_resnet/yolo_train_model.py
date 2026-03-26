@@ -1,7 +1,8 @@
 from ultralytics import YOLO
 
 def main():
-    model = YOLO("../roboflow_scripts/yolo11x-obb.pt")
+    # Use the public Ultralytics checkpoint name instead of a local archived path.
+    model = YOLO("yolo11x-obb.pt")
 
     model.train(
         data='dataset_split/data.yaml',
