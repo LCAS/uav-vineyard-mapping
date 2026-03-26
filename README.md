@@ -2,6 +2,9 @@
 
 `uav-vineyard-mapping` is a publication-facing export of the UAV vineyard mapping and robotic-navigation workspace used for the experiments reported in "An Integrated Aerial-Ground System for Vineyard Mapping and Robotic Navigation".
 
+https://github.com/user-attachments/assets/fadc2bb0-dd91-4a22-bcf9-186bb117a595
+
+
 This release focuses on:
 
 - research code and supporting utilities
