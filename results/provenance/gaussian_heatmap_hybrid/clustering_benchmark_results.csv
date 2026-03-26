@@ -1,0 +1,53 @@
+Method,Params,Clusters,TP,FN,FP,RMSE (m)
+Agglomerative,thresh=1.75,62,39,1,23,0.37
+Agglomerative,thresh=1.5,77,39,1,38,0.452
+HDBSCAN,"min_sz=2, min_samp=1",461,39,1,422,0.47
+Agglomerative,thresh=0.5,307,39,1,268,0.503
+HDBSCAN,"min_sz=3, min_samp=1",230,39,1,191,0.545
+Agglomerative,thresh=1.25,101,39,1,62,0.547
+HDBSCAN,"min_sz=2, min_samp=3",125,39,1,86,0.576
+HDBSCAN,"min_sz=3, min_samp=3",114,39,1,75,0.588
+Agglomerative,thresh=0.75,186,39,1,147,0.594
+HDBSCAN,"min_sz=5, min_samp=1",119,39,1,80,0.596
+HDBSCAN,"min_sz=5, min_samp=3",88,39,1,49,0.597
+Agglomerative,thresh=1.0,124,39,1,85,0.665
+HDBSCAN,"min_sz=2, min_samp=5",84,39,1,45,0.681
+HDBSCAN,"min_sz=3, min_samp=5",76,39,1,37,0.695
+HDBSCAN,"min_sz=5, min_samp=5",71,39,1,32,0.703
+Agglomerative,thresh=2.0,59,38,2,21,0.316
+Agglomerative,thresh=2.5,49,38,2,11,0.531
+DBSCAN,"eps=0.5, min=1",118,37,3,81,0.526
+DBSCAN,"eps=0.5, min=3",63,37,3,26,0.558
+DBSCAN,"eps=0.5, min=8",53,37,3,16,0.768
+DBSCAN,"eps=0.5, min=5",59,37,3,22,0.777
+DBSCAN,"eps=0.75, min=1",57,33,7,24,0.944
+DBSCAN,"eps=0.75, min=8",34,30,10,4,0.66
+KMeans,k=38,38,30,10,8,0.85
+DBSCAN,"eps=0.75, min=3",33,29,11,4,0.699
+KMeans,k=40,40,29,11,11,0.767
+KMeans,k=42,42,29,11,13,0.791
+DBSCAN,"eps=0.75, min=5",32,28,12,4,0.566
+DBSCAN,"eps=1.0, min=1",39,24,16,15,1.008
+DBSCAN,"eps=1.0, min=8",24,23,17,1,0.615
+DBSCAN,"eps=1.0, min=5",25,23,17,2,0.643
+DBSCAN,"eps=1.0, min=3",26,23,17,3,0.829
+DBSCAN,"eps=1.25, min=1",17,11,29,6,1.067
+DBSCAN,"eps=1.25, min=5",10,9,31,1,0.543
+DBSCAN,"eps=1.25, min=8",10,9,31,1,0.564
+DBSCAN,"eps=1.25, min=3",10,9,31,1,0.929
+DBSCAN,"eps=1.5, min=1",10,5,35,5,1.6
+DBSCAN,"eps=1.5, min=3",5,3,37,2,1.324
+DBSCAN,"eps=1.5, min=5",4,2,38,2,0.157
+DBSCAN,"eps=1.75, min=1",5,2,38,3,1.948
+DBSCAN,"eps=2.0, min=1",5,2,38,3,1.948
+DBSCAN,"eps=1.75, min=8",2,1,39,1,0.053
+DBSCAN,"eps=1.5, min=8",3,1,39,2,0.053
+DBSCAN,"eps=1.75, min=3",1,1,39,0,2.467
+DBSCAN,"eps=1.75, min=5",1,1,39,0,2.467
+DBSCAN,"eps=2.0, min=3",1,1,39,0,2.467
+DBSCAN,"eps=2.0, min=5",1,1,39,0,2.467
+DBSCAN,"eps=2.0, min=8",1,1,39,0,2.467
+DBSCAN,"eps=2.5, min=3",1,1,39,0,2.469
+DBSCAN,"eps=2.5, min=5",1,1,39,0,2.469
+DBSCAN,"eps=2.5, min=8",1,1,39,0,2.469
+DBSCAN,"eps=2.5, min=1",4,1,39,3,2.469

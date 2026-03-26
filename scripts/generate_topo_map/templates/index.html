@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vineyard Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0d1b1e;
+      --sand: #f4f0e6;
+      --soil: #3a2f27;
+      --leaf: #2a7f62;
+      --amber: #f2a541;
+      --sky: #cfe7e1;
+      --panel: #fbfaf7;
+      --border: #d9d2c5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 10% 10%, #ffffff 0%, var(--sand) 45%, #efe6d8 100%);
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: minmax(280px, 340px) 1fr;
+      height: 100vh;
+    }
+
+    .sidebar {
+      padding: 24px;
+      padding-right: 16px;
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #b8ada0;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .panel {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #4d4a44;
+    }
+
+    select, input[type="range"], input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 10px;
+      background: var(--leaf);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button.secondary {
+      background: var(--soil);
+    }
+
+    button.ghost {
+      background: transparent;
+      color: var(--soil);
+      border: 1px solid var(--soil);
+    }
+
+    button:hover { transform: translateY(-1px); box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); }
+
+    .status {
+      font-size: 12px;
+      color: #6b635a;
+      min-height: 18px;
+    }
+
+    .progress {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .progress.is-active {
+      display: flex;
+    }
+
+    .progress-track {
+      position: relative;
+      flex: 1;
+      height: 10px;
+      border-radius: 999px;
+      background: #efe8db;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #cfe7e1 0%, #2a7f62 70%);
+      transition: width 0.25s ease;
+    }
+
+    .progress-label {
+      min-width: 44px;
+      text-align: right;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: #4d4a44;
+    }
+
+    .map {
+      position: relative;
+    }
+
+    #map {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .filtering {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .topo {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .range-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .range-value {
+      min-width: 44px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .token-warning {
+      background: #fff5d8;
+      border: 1px solid #f0d39b;
+      color: #7a5a19;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+      #map { height: calc(100vh - 480px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">Vineyard Analysis</div>
+
+      {% if not mapbox_token %}
+      <div class="token-warning">Set MAPBOX_TOKEN in your environment to enable the map.</div>
+      {% endif %}
+
+      <div class="panel">
+        <label for="folderSelect">Select Image Folder</label>
+        <select id="folderSelect"></select>
+
+        <label for="modelSelect" style="margin-top: 12px;">Select Model</label>
+        <select id="modelSelect"></select>
+
+        <label for="sessionSelect" style="margin-top: 12px;">Cached Session</label>
+        <select id="sessionSelect">
+          <option value="">No cached sessions</option>
+        </select>
+
+        <button id="loadSession" class="ghost" style="margin-top: 10px;">Load Session</button>
+
+        <button id="runInference" style="margin-top: 14px;">Run Inference</button>
+        <div class="status" id="inferenceStatus"></div>
+        <div class="progress" id="inferenceProgress" aria-hidden="true">
+          <div class="progress-track">
+            <div class="progress-bar" id="inferenceBar"></div>
+          </div>
+          <div class="progress-label" id="inferenceLabel">0%</div>
+        </div>
+      </div>
+
+      <div class="panel filtering" id="filterPanel">
+        <strong>Filtering &amp; Refinement</strong>
+
+        <label style="display: flex; gap: 6px; align-items: center; font-size: 12px; margin: 0;">
+          <input type="checkbox" id="filterVineRows" checked>
+          Filter poles by vine rows
+        </label>
+
+        <div>
+          <label>Map Layers</label>
+          <div class="range-row" style="gap: 12px; align-items: flex-start;">
+            <label style="display: flex; gap: 6px; align-items: center; font-size: 12px; margin: 0;">
+              <input type="checkbox" id="toggleRaw" checked>
+              Raw Poles
+            </label>
+            <label style="display: flex; gap: 6px; align-items: center; font-size: 12px; margin: 0;">
+              <input type="checkbox" id="toggleClustered" checked>
+              Clustered Poles
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="confidenceSlider">Confidence Threshold</label>
+          <div class="range-row">
+            <input type="range" id="confidenceSlider" min="0" max="1" step="0.01" value="0.4">
+            <div class="range-value" id="confidenceValue">0.40</div>
+          </div>
+        </div>
+
+        <div>
+          <label for="clusterSlider">Cluster Radius (meters)</label>
+          <div class="range-row">
+            <input type="range" id="clusterSlider" min="0.5" max="6" step="0.1" value="1.7">
+            <div class="range-value" id="clusterValue">1.7</div>
+          </div>
+        </div>
+
+        <div>
+          <label for="clusterAlgo">Clustering Algorithm</label>
+          <select id="clusterAlgo">
+            <option value="agglomerative">Agglomerative (average-link)</option>
+            <option value="dbscan">DBSCAN (haversine)</option>
+            <option value="kmeans">KMeans (auto K)</option>
+            <option value="hdbscan">HDBSCAN (min cluster size)</option>
+            <option value="none">No clustering</option>
+          </select>
+        </div>
+
+        <button id="applyFilter" class="secondary">Apply Filter</button>
+        <button id="generateRows" class="ghost">Generate Rows</button>
+
+        <div class="status" id="filterStatus"></div>
+        <div class="progress" id="filterProgress" aria-hidden="true">
+          <div class="progress-track">
+            <div class="progress-bar" id="filterBar"></div>
+          </div>
+          <div class="progress-label" id="filterLabel">0%</div>
+        </div>
+      </div>
+
+      <div class="panel topo" id="topoPanel">
+        <strong>Topological Map Parameters</strong>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mapName">Map Name</label>
+            <input type="text" id="mapName" value="vineyard" placeholder="e.g., vineyard">
+          </div>
+          <div class="form-group">
+            <label for="metricMap">Metric Map Name</label>
+            <input type="text" id="metricMap" value="vineyard_metric" placeholder="e.g., vineyard_metric">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="topoEdgeDistance">Node Spacing Along Rows (m)</label>
+          <input type="number" id="topoEdgeDistance" value="2" min="0.5" step="0.5">
+        </div>
+
+        <div class="form-group">
+          <label for="topoExtendDistance">Extend Distance at Ends (m)</label>
+          <input type="number" id="topoExtendDistance" value="3" min="0" step="0.5">
+        </div>
+
+        <div class="form-group">
+          <label for="topoCrossRowDistance">Max Cross-Row Distance (m)</label>
+          <input type="number" id="topoCrossRowDistance" value="6" min="1" step="0.5">
+        </div>
+
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <label style="display: flex; gap: 6px; align-items: center; font-size: 12px; margin: 0;">
+            <input type="checkbox" id="toggleTopo" checked>
+            Show Topological Map
+          </label>
+        </div>
+
+        <button id="updateTopo" class="ghost">Update Topo Preview</button>
+        <button id="saveGeoJSON" class="ghost">Save GeoJSON (Poles & Rows)</button>
+        <button id="exportTopo">Export Topological Map</button>
+        <div class="status" id="topoStatus"></div>
+        <div class="progress" id="topoProgress" aria-hidden="true">
+          <div class="progress-track">
+            <div class="progress-bar" id="topoBar"></div>
+          </div>
+          <div class="progress-label" id="topoLabel">0%</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="map">
+      <div id="map"></div>
+    </main>
+  </div>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script>
+    const MAPBOX_TOKEN = "{{ mapbox_token }}";
+    mapboxgl.accessToken = MAPBOX_TOKEN || "";
+
+    const folderSelect = document.getElementById("folderSelect");
+    const modelSelect = document.getElementById("modelSelect");
+    const sessionSelect = document.getElementById("sessionSelect");
+    const runButton = document.getElementById("runInference");
+    const loadSessionButton = document.getElementById("loadSession");
+    const applyButton = document.getElementById("applyFilter");
+    const generateRowsButton = document.getElementById("generateRows");
+    const exportButton = document.getElementById("exportTopo");
+    const updateTopoButton = document.getElementById("updateTopo");
+    const saveGeoJSONButton = document.getElementById("saveGeoJSON");
+
+    const confidenceSlider = document.getElementById("confidenceSlider");
+    const clusterSlider = document.getElementById("clusterSlider");
+    const confidenceValue = document.getElementById("confidenceValue");
+    const clusterValue = document.getElementById("clusterValue");
+    const filterPanel = document.getElementById("filterPanel");
+    const topoPanel = document.getElementById("topoPanel");
+    const filterVineRows = document.getElementById("filterVineRows");
+    const toggleRaw = document.getElementById("toggleRaw");
+    const toggleClustered = document.getElementById("toggleClustered");
+    const toggleTopo = document.getElementById("toggleTopo");
+    const clusterAlgo = document.getElementById("clusterAlgo");
+
+    const inferenceStatus = document.getElementById("inferenceStatus");
+    const filterStatus = document.getElementById("filterStatus");
+    const topoStatus = document.getElementById("topoStatus");
+    const inferenceProgress = document.getElementById("inferenceProgress");
+    const filterProgress = document.getElementById("filterProgress");
+    const topoProgress = document.getElementById("topoProgress");
+    const inferenceBar = document.getElementById("inferenceBar");
+    const filterBar = document.getElementById("filterBar");
+    const topoBar = document.getElementById("topoBar");
+    const inferenceLabel = document.getElementById("inferenceLabel");
+    const filterLabel = document.getElementById("filterLabel");
+    const topoLabel = document.getElementById("topoLabel");
+
+    let sessionId = null;
+    let rawPolesGeojson = { type: "FeatureCollection", features: [] };
+    let clusteredPolesGeojson = { type: "FeatureCollection", features: [] };
+    let rowsGeojson = { type: "FeatureCollection", features: [] };
+
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/satellite-streets-v12",
+      center: [-0.5244932319279143, 53.268102561545064],
+      zoom: 15
+    });
+
+    let topoGeojson = { type: "FeatureCollection", features: [] };
+    let topoNodesGeojson = { type: "FeatureCollection", features: [] };
+
+    map.on("load", () => {
+      map.addSource("poles-raw", { type: "geojson", data: rawPolesGeojson });
+      map.addSource("poles-clustered", { type: "geojson", data: clusteredPolesGeojson });
+      map.addSource("rows", { type: "geojson", data: rowsGeojson });
+      map.addSource("topo-edges", { type: "geojson", data: topoGeojson });
+      map.addSource("topo-nodes", { type: "geojson", data: topoNodesGeojson });
+
+      map.addLayer({
+        id: "topo-edges-layer",
+        type: "line",
+        source: "topo-edges",
+        paint: {
+          "line-color": "#e74c3c",
+          "line-width": 2,
+          "line-dasharray": [4, 4]
+        }
+      });
+
+      map.addLayer({
+        id: "rows-layer",
+        type: "line",
+        source: "rows",
+        paint: {
+          "line-color": "#f2a541",
+          "line-width": 3
+        }
+      });
+
+      map.addLayer({
+        id: "poles-raw-layer",
+        type: "circle",
+        source: "poles-raw",
+        paint: {
+          "circle-radius": 4,
+          "circle-color": "#7c5a31",
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1
+        }
+      });
+
+      map.addLayer({
+        id: "poles-clustered-layer",
+        type: "circle",
+        source: "poles-clustered",
+        paint: {
+          "circle-radius": 6,
+          "circle-color": "#2a7f62",
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 1
+        }
+      });
+
+      map.addLayer({
+        id: "topo-nodes-layer",
+        type: "circle",
+        source: "topo-nodes",
+        paint: {
+          "circle-radius": 8,
+          "circle-color": "#e74c3c",
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 2
+        }
+      });
+
+      map.addLayer({
+        id: "topo-labels-layer",
+        type: "symbol",
+        source: "topo-nodes",
+        layout: {
+          "text-field": ["get", "node_id"],
+          "text-size": 12,
+          "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+          "text-offset": [0, 0],
+          "text-anchor": "center"
+        },
+        paint: {
+          "text-color": "#ffffff",
+          "text-halo-color": "#e74c3c",
+          "text-halo-width": 2
+        }
+      });
+    });
+
+    function refreshMap() {
+      const rawSource = map.getSource("poles-raw");
+      const clusteredSource = map.getSource("poles-clustered");
+      const rowsSource = map.getSource("rows");
+      if (rawSource) rawSource.setData(rawPolesGeojson);
+      if (clusteredSource) clusteredSource.setData(clusteredPolesGeojson);
+      if (rowsSource) rowsSource.setData(rowsGeojson);
+    }
+
+    function syncSliderText() {
+      confidenceValue.textContent = Number(confidenceSlider.value).toFixed(2);
+      clusterValue.textContent = Number(clusterSlider.value).toFixed(1);
+    }
+
+    function ensureFeatureIds(collection) {
+      collection.features = collection.features.map((feature, index) => {
+        feature.properties = feature.properties || {};
+        if (!feature.properties.id) {
+          feature.properties.id = `pole_${index}`;
+        }
+        return feature;
+      });
+    }
+
+    function setLayerVisibility(layerId, isVisible) {
+      if (!map.getLayer(layerId)) return;
+      map.setLayoutProperty(layerId, "visibility", isVisible ? "visible" : "none");
+    }
+
+    function updatePoleVisibility() {
+      setLayerVisibility("poles-raw-layer", toggleRaw.checked);
+      setLayerVisibility("poles-clustered-layer", toggleClustered.checked);
+    }
+
+    function formatStats(stats) {
+      if (!stats) return "";
+      const images = `${stats.images_with_gps}/${stats.images_total} images`;
+      const poles = Number.isFinite(stats.clustered_poles)
+        ? `${stats.raw_poles} raw → ${stats.clustered_poles} clustered`
+        : `${stats.raw_poles} raw poles`;
+      const algo = stats.cluster_algo ? `, ${stats.cluster_algo}` : "";
+      return `${images}, ${poles}${algo}`;
+    }
+
+    function setProgress(progressEl, barEl, labelEl, percent, isActive) {
+      if (!progressEl || !barEl || !labelEl) return;
+      const value = Math.max(0, Math.min(100, Math.round(percent)));
+      progressEl.classList.toggle("is-active", isActive);
+      progressEl.setAttribute("aria-hidden", String(!isActive));
+      barEl.style.width = `${value}%`;
+      labelEl.textContent = `${value}%`;
+    }
+
+    async function pollJob(jobId, statusEl, progressEls, onDone) {
+      const { progressEl, barEl, labelEl } = progressEls;
+      setProgress(progressEl, barEl, labelEl, 0, true);
+
+      return new Promise((resolve) => {
+        const interval = setInterval(async () => {
+          const response = await fetch(`/api/job/${jobId}`);
+          const data = await response.json();
+          if (!response.ok) {
+            clearInterval(interval);
+            setProgress(progressEl, barEl, labelEl, 0, false);
+            statusEl.textContent = data.error || "Job failed";
+            resolve(null);
+            return;
+          }
+
+          const percent = Number(data.progress || 0);
+          setProgress(progressEl, barEl, labelEl, percent, true);
+          if (data.message) {
+            statusEl.textContent = data.message;
+          }
+
+          if (data.status === "done") {
+            clearInterval(interval);
+            setProgress(progressEl, barEl, labelEl, 100, false);
+            resolve(data.result || null);
+          }
+
+          if (data.status === "error") {
+            clearInterval(interval);
+            setProgress(progressEl, barEl, labelEl, 0, false);
+            statusEl.textContent = data.error || data.message || "Job failed";
+            resolve(null);
+          }
+        }, 1000);
+      });
+    }
+
+    async function loadFolders() {
+      const response = await fetch("/api/folders");
+      const data = await response.json();
+      folderSelect.innerHTML = data.folders.map(folder => `<option value="${folder}">${folder}</option>`).join("");
+    }
+
+    async function loadModels() {
+      const response = await fetch("/api/models");
+      const data = await response.json();
+      modelSelect.innerHTML = data.models.map(model => `<option value="${model.path}">${model.label}</option>`).join("");
+    }
+
+    async function loadSessions() {
+      const response = await fetch("/api/sessions");
+      const data = await response.json();
+      if (!data.sessions || data.sessions.length === 0) {
+        sessionSelect.innerHTML = "<option value=\"\">No cached sessions</option>";
+        return;
+      }
+      sessionSelect.innerHTML = data.sessions
+        .map(session => `<option value="${session.id}">${session.label}</option>`)
+        .join("");
+    }
+
+    async function loadSessionFromCache() {
+      const selected = sessionSelect.value;
+      if (!selected) {
+        inferenceStatus.textContent = "Select a cached session first.";
+        return;
+      }
+
+      sessionId = selected;
+      inferenceStatus.textContent = `Loaded cached session ${selected}.`;
+      rawPolesGeojson = { type: "FeatureCollection", features: [] };
+      clusteredPolesGeojson = { type: "FeatureCollection", features: [] };
+      rowsGeojson = { type: "FeatureCollection", features: [] };
+      refreshMap();
+      filterPanel.style.display = "flex";
+
+      await applyFilter();
+    }
+
+    async function runInference() {
+      inferenceStatus.textContent = "Running inference...";
+      filterStatus.textContent = "";
+      setProgress(inferenceProgress, inferenceBar, inferenceLabel, 0, true);
+      const payload = {
+        folder: folderSelect.value,
+        model_path: modelSelect.value,
+        confidence: Number(confidenceSlider.value),
+        cluster_radius: Number(clusterSlider.value),
+        cluster_algo: clusterAlgo.value
+      };
+
+      const response = await fetch("/api/run_inference", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        inferenceStatus.textContent = data.error || "Inference failed";
+        setProgress(inferenceProgress, inferenceBar, inferenceLabel, 0, false);
+        return;
+      }
+
+      const result = await pollJob(
+        data.job_id,
+        inferenceStatus,
+        { progressEl: inferenceProgress, barEl: inferenceBar, labelEl: inferenceLabel }
+      );
+      if (!result) return;
+
+      sessionId = result.session_id;
+      rawPolesGeojson = result.poles;
+      ensureFeatureIds(rawPolesGeojson);
+      clusteredPolesGeojson = { type: "FeatureCollection", features: [] };
+      rowsGeojson = { type: "FeatureCollection", features: [] };
+      refreshMap();
+
+      if (rawPolesGeojson.features.length) {
+        const first = rawPolesGeojson.features[0].geometry.coordinates;
+        map.flyTo({ center: first, zoom: 18 });
+      }
+
+      const statsText = formatStats(result.stats);
+      inferenceStatus.textContent = statsText
+        ? `Inference complete. ${statsText}.`
+        : `Inference complete. ${rawPolesGeojson.features.length} poles.`;
+      filterPanel.style.display = "flex";
+      updatePoleVisibility();
+    }
+
+    async function applyFilter() {
+      if (!sessionId) {
+        filterStatus.textContent = "Run inference first.";
+        return;
+      }
+
+      filterStatus.textContent = "Applying filter...";
+      setProgress(filterProgress, filterBar, filterLabel, 0, true);
+      const payload = {
+        session_id: sessionId,
+        confidence: Number(confidenceSlider.value),
+        cluster_radius: Number(clusterSlider.value),
+        cluster_algo: clusterAlgo.value,
+        rows: rowsGeojson,
+        filter_vine_rows: filterVineRows ? filterVineRows.checked : true
+      };
+
+      const response = await fetch("/api/apply_filter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        filterStatus.textContent = data.error || "Filter failed";
+        setProgress(filterProgress, filterBar, filterLabel, 0, false);
+        return;
+      }
+
+      const result = await pollJob(
+        data.job_id,
+        filterStatus,
+        { progressEl: filterProgress, barEl: filterBar, labelEl: filterLabel }
+      );
+      if (!result) return;
+
+      clusteredPolesGeojson = result.poles;
+      ensureFeatureIds(clusteredPolesGeojson);
+      rowsGeojson = { type: "FeatureCollection", features: [] };
+      refreshMap();
+      
+      // Clear topological visualization when filter is applied (rows reset)
+      topoGeojson = { type: "FeatureCollection", features: [] };
+      topoNodesGeojson = { type: "FeatureCollection", features: [] };
+      refreshTopoVisualization();
+      
+      const statsText = formatStats(result.stats);
+      filterStatus.textContent = statsText
+        ? `Filter updated. ${statsText}.`
+        : `Filter updated. ${clusteredPolesGeojson.features.length} poles.`;
+      updatePoleVisibility();
+    }
+
+    async function generateRows() {
+      filterStatus.textContent = "Generating rows...";
+      setProgress(filterProgress, filterBar, filterLabel, 0, true);
+      const polesForRows = clusteredPolesGeojson.features.length ? clusteredPolesGeojson : rawPolesGeojson;
+      
+      const payload = {
+        poles: polesForRows,
+        session_id: sessionId
+      };
+      
+      const response = await fetch("/api/generate_rows", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        filterStatus.textContent = data.error || "Row generation failed";
+        setProgress(filterProgress, filterBar, filterLabel, 0, false);
+        return;
+      }
+
+      const result = await pollJob(
+        data.job_id,
+        filterStatus,
+        { progressEl: filterProgress, barEl: filterBar, labelEl: filterLabel }
+      );
+      if (!result) return;
+
+      rowsGeojson = result.rows;
+      refreshMap();
+      const directionSource = rowsGeojson.features.length > 0 && rowsGeojson.features[0].properties && rowsGeojson.features[0].properties.direction_source
+        ? ` (${rowsGeojson.features[0].properties.direction_source})` : "";
+      filterStatus.textContent = `Generated ${rowsGeojson.features.length} rows${directionSource}.`;
+      topoPanel.style.display = "flex";
+      
+      // Build and visualize topological map using detected rows
+      const nodeSpacing = parseFloat(document.getElementById("topoEdgeDistance").value) || 2.0;
+      const extendDistance = parseFloat(document.getElementById("topoExtendDistance").value) || 0.0;
+      buildTopoVisualization(rowsGeojson, nodeSpacing, extendDistance);
+      setTopoVisibility(toggleTopo.checked);
+    }
+
+    function interpolatePointsAlongLine(startCoord, endCoord, spacingM) {
+      // Calculate distance using haversine formula
+      const lat1 = startCoord[1], lon1 = startCoord[0];
+      const lat2 = endCoord[1], lon2 = endCoord[0];
+      const R = 6371000;
+      const φ1 = lat1 * Math.PI / 180;
+      const φ2 = lat2 * Math.PI / 180;
+      const Δφ = (lat2 - lat1) * Math.PI / 180;
+      const Δλ = (lon2 - lon1) * Math.PI / 180;
+      const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = R * c;
+      
+      const numPoints = Math.max(2, Math.ceil(distance / spacingM) + 1);
+      const points = [];
+      
+      for (let i = 0; i < numPoints; i++) {
+        const fraction = numPoints > 1 ? i / (numPoints - 1) : 0;
+        const lat = lat1 + (lat2 - lat1) * fraction;
+        const lon = lon1 + (lon2 - lon1) * fraction;
+        points.push([lon, lat]);
+      }
+      
+      return points;
+    }
+
+    function buildTopoVisualization(rowsGeojson, nodeSpacingM = 2.0, extendDistanceM = 0.0) {
+      topoGeojson = { type: "FeatureCollection", features: [] };
+      topoNodesGeojson = { type: "FeatureCollection", features: [] };
+
+      const rows = rowsGeojson.features || [];
+      if (rows.length === 0) return;
+
+      const rowLines = rows
+        .filter(rowFeature => rowFeature.geometry.type === "LineString")
+        .map(rowFeature => rowFeature.geometry.coordinates)
+        .filter(coords => coords.length >= 2);
+
+      if (rowLines.length < 2) return;
+
+      // Sort rows West -> East by centroid longitude (match debug script)
+      const rowsSorted = rowLines.slice().sort((a, b) => {
+        const centA = a.reduce((s, c) => s + c[0], 0) / a.length;
+        const centB = b.reduce((s, c) => s + c[0], 0) / b.length;
+        return centA - centB;
+      });
+
+      // Build aisles (midlines) between consecutive rows
+      const aisles = [];
+      for (let i = 0; i < rowsSorted.length - 1; i++) {
+        let left = rowsSorted[i].slice();
+        let right = rowsSorted[i + 1].slice();
+
+        // Ensure direction alignment
+        const distStartStart = (p1, p2) => {
+          const lat1 = p1[1], lon1 = p1[0];
+          const lat2 = p2[1], lon2 = p2[0];
+          const R = 6371000;
+          const φ1 = lat1 * Math.PI / 180;
+          const φ2 = lat2 * Math.PI / 180;
+          const Δφ = (lat2 - lat1) * Math.PI / 180;
+          const Δλ = (lon2 - lon1) * Math.PI / 180;
+          const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+          return R * c;
+        };
+
+        const d1 = distStartStart(left[0], right[0]);
+        const d2 = distStartStart(left[0], right[right.length - 1]);
+        if (d2 < d1) right = right.slice().reverse();
+
+        const numSamples = Math.max(left.length, right.length, 10);
+        const midline = [];
+        for (let k = 0; k < numSamples; k++) {
+          const frac = k / (numSamples - 1);
+          const idxL = frac * (left.length - 1);
+          const baseL = left[Math.floor(idxL)];
+          const nextL = left[Math.min(Math.floor(idxL) + 1, left.length - 1)];
+          const pLeft = [baseL[0] + (nextL[0] - baseL[0]) * (idxL % 1), baseL[1] + (nextL[1] - baseL[1]) * (idxL % 1)];
+
+          const idxR = frac * (right.length - 1);
+          const baseR = right[Math.floor(idxR)];
+          const nextR = right[Math.min(Math.floor(idxR) + 1, right.length - 1)];
+          const pRight = [baseR[0] + (nextR[0] - baseR[0]) * (idxR % 1), baseR[1] + (nextR[1] - baseR[1]) * (idxR % 1)];
+
+          midline.push([(pLeft[0] + pRight[0]) / 2, (pLeft[1] + pRight[1]) / 2]);
+        }
+
+        // Extend midline endpoints using degree-scale approximation (matches debug script)
+        if (midline.length >= 2 && extendDistanceM > 0) {
+          const extendPointDeg = (startP, endP, distM) => {
+            const lat = endP[1];
+            const mPerDegLat = 111132.92 - 559.82 * Math.cos(2 * lat * Math.PI / 180);
+            const mPerDegLon = 111412.84 * Math.cos(lat * Math.PI / 180) - 93.5 * Math.cos(3 * lat * Math.PI / 180);
+            const vecX = endP[0] - startP[0];
+            const vecY = endP[1] - startP[1];
+            const lenMeters = Math.sqrt((vecX * mPerDegLon) * (vecX * mPerDegLon) + (vecY * mPerDegLat) * (vecY * mPerDegLat));
+            if (lenMeters === 0) return endP;
+            const factor = distM / lenMeters;
+            const newLon = endP[0] + vecX * factor;
+            const newLat = endP[1] + vecY * factor;
+            return [newLon, newLat];
+          };
+
+          const start_ext = extendPointDeg(midline[1], midline[0], extendDistanceM);
+          const end_ext = extendPointDeg(midline[midline.length - 2], midline[midline.length - 1], extendDistanceM);
+          midline.unshift(start_ext);
+          midline.push(end_ext);
+        }
+
+        aisles.push(midline);
+      }
+
+      // Place nodes along aisles (polyline interpolation) and create edges
+      const aisleNodeIds = [];
+      const haversineDist = (p1, p2) => {
+        const lat1 = p1[1], lon1 = p1[0];
+        const lat2 = p2[1], lon2 = p2[0];
+        const R = 6371000;
+        const φ1 = lat1 * Math.PI / 180;
+        const φ2 = lat2 * Math.PI / 180;
+        const Δφ = (lat2 - lat1) * Math.PI / 180;
+        const Δλ = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+      };
+
+      aisles.forEach((coords, aisleIdx) => {
+        const segLens = [];
+        let totalLen = 0;
+        for (let s = 0; s < coords.length - 1; s++) {
+          const d = haversineDist(coords[s], coords[s + 1]);
+          segLens.push(d);
+          totalLen += d;
+        }
+
+        const numNodes = Math.max(2, Math.floor(totalLen / nodeSpacingM));
+        const ids = [];
+        for (let n = 0; n <= numNodes; n++) {
+          const target = (n / numNodes) * totalLen;
+          let cum = 0;
+          let nodeCoord = coords[coords.length - 1];
+          for (let s = 0; s < segLens.length; s++) {
+            if (cum + segLens[s] >= target) {
+              const remain = target - cum;
+              const frac = segLens[s] > 0 ? remain / segLens[s] : 0;
+              const a = coords[s];
+              const b = coords[s + 1];
+              nodeCoord = [a[0] + (b[0] - a[0]) * frac, a[1] + (b[1] - a[1]) * frac];
+              break;
+            }
+            cum += segLens[s];
+          }
+
+          const nodeId = `aisle_${aisleIdx}_node_${n}`;
+          ids.push(nodeId);
+          topoNodesGeojson.features.push({ type: "Feature", geometry: { type: "Point", coordinates: nodeCoord }, properties: { node_id: nodeId, aisle: aisleIdx, node_idx: n } });
+          if (n > 0) {
+            const prevId = ids[ids.length - 2];
+            const prevCoord = topoNodesGeojson.features.find(f => f.properties.node_id === prevId).geometry.coordinates;
+            topoGeojson.features.push({ type: "Feature", geometry: { type: "LineString", coordinates: [prevCoord, nodeCoord] }, properties: { edge_id: `${prevId}_to_${nodeId}` } });
+          }
+        }
+        aisleNodeIds.push(ids);
+      });
+
+      // Headland connections
+      for (let i = 0; i < aisleNodeIds.length - 1; i++) {
+        const aStart = aisleNodeIds[i][0];
+        const bStart = aisleNodeIds[i + 1][0];
+        const aEnd = aisleNodeIds[i][aisleNodeIds[i].length - 1];
+        const bEnd = aisleNodeIds[i + 1][aisleNodeIds[i + 1].length - 1];
+        const coordAStart = topoNodesGeojson.features.find(f => f.properties.node_id === aStart).geometry.coordinates;
+        const coordBStart = topoNodesGeojson.features.find(f => f.properties.node_id === bStart).geometry.coordinates;
+        const coordAEnd = topoNodesGeojson.features.find(f => f.properties.node_id === aEnd).geometry.coordinates;
+        const coordBEnd = topoNodesGeojson.features.find(f => f.properties.node_id === bEnd).geometry.coordinates;
+        topoGeojson.features.push({ type: "Feature", geometry: { type: "LineString", coordinates: [coordAStart, coordBStart] }, properties: { edge_type: "headland" } });
+        topoGeojson.features.push({ type: "Feature", geometry: { type: "LineString", coordinates: [coordAEnd, coordBEnd] }, properties: { edge_type: "headland" } });
+      }
+
+      refreshTopoVisualization();
+    }
+
+    function refreshTopoVisualization() {
+      const topoEdgesSource = map.getSource("topo-edges");
+      const topoNodesSource = map.getSource("topo-nodes");
+      if (topoEdgesSource) topoEdgesSource.setData(topoGeojson);
+      if (topoNodesSource) topoNodesSource.setData(topoNodesGeojson);
+    }
+
+    function setTopoVisibility(isVisible) {
+      setLayerVisibility("topo-edges-layer", isVisible);
+      setLayerVisibility("topo-nodes-layer", isVisible);
+      setLayerVisibility("topo-labels-layer", isVisible);
+    }
+
+    function updateTopoPreview() {
+      if (!rowsGeojson.features.length) {
+        topoStatus.textContent = "Generate rows before updating topo preview.";
+        return;
+      }
+      const nodeSpacing = parseFloat(document.getElementById("topoEdgeDistance").value) || 2.0;
+      const extendDistance = parseFloat(document.getElementById("topoExtendDistance").value) || 0.0;
+      buildTopoVisualization(rowsGeojson, nodeSpacing, extendDistance);
+      setTopoVisibility(toggleTopo.checked);
+      topoStatus.textContent = "Topo preview updated.";
+    }
+
+    // Save poles and rows GeoJSON to local download (for debugging)
+    function saveGeoJSON() {
+      const polesForExport = clusteredPolesGeojson.features.length ? clusteredPolesGeojson : rawPolesGeojson;
+      if (!polesForExport.features.length || !rowsGeojson.features.length) {
+        alert("Generate rows before saving GeoJSON.");
+        return;
+      }
+
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
+
+      // Save poles
+      const polesBlob = new Blob([JSON.stringify(polesForExport, null, 2)], { type: "application/json" });
+      const polesUrl = URL.createObjectURL(polesBlob);
+      const polesLink = document.createElement("a");
+      polesLink.href = polesUrl;
+      polesLink.download = `poles_${timestamp}.geojson`;
+      document.body.appendChild(polesLink);
+      polesLink.click();
+      document.body.removeChild(polesLink);
+      URL.revokeObjectURL(polesUrl);
+
+      // Save rows
+      const rowsBlob = new Blob([JSON.stringify(rowsGeojson, null, 2)], { type: "application/json" });
+      const rowsUrl = URL.createObjectURL(rowsBlob);
+      const rowsLink = document.createElement("a");
+      rowsLink.href = rowsUrl;
+      rowsLink.download = `vine_rows_${timestamp}.geojson`;
+      document.body.appendChild(rowsLink);
+      rowsLink.click();
+      document.body.removeChild(rowsLink);
+      URL.revokeObjectURL(rowsUrl);
+
+      alert(`GeoJSON files saved:\n- poles_${timestamp}.geojson\n- vine_rows_${timestamp}.geojson`);
+    }
+
+    async function exportTopo() {
+      const polesForExport = clusteredPolesGeojson.features.length ? clusteredPolesGeojson : rawPolesGeojson;
+      if (!polesForExport.features.length || !rowsGeojson.features.length) {
+        topoStatus.textContent = "Generate rows before export.";
+        return;
+      }
+
+      topoStatus.textContent = "Exporting topo map...";
+      setProgress(topoProgress, topoBar, topoLabel, 0, true);
+      const nodeSpacing = parseFloat(document.getElementById("topoEdgeDistance").value) || 2;
+      const extendDistance = parseFloat(document.getElementById("topoExtendDistance").value) || 3;
+      const crossRowDistance = parseFloat(document.getElementById("topoCrossRowDistance").value) || 6;
+      const payload = {
+        poles: polesForExport,
+        rows: rowsGeojson,
+        map_name: document.getElementById("mapName").value,
+        metric_map: document.getElementById("metricMap").value,
+        node_spacing_m: nodeSpacing,
+        extend_distance_m: extendDistance,
+        cross_row_distance_m: crossRowDistance
+      };
+
+      const response = await fetch("/api/export_topo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        topoStatus.textContent = data.error || "Export failed";
+        setProgress(topoProgress, topoBar, topoLabel, 0, false);
+        return;
+      }
+
+      const result = await pollJob(
+        data.job_id,
+        topoStatus,
+        { progressEl: topoProgress, barEl: topoBar, labelEl: topoLabel }
+      );
+      if (!result) return;
+
+      const topoBlob = new Blob([result.topo_yaml], { type: "text/yaml" });
+
+      const datumBlob = new Blob([result.datum_yaml], { type: "text/yaml" });
+
+      const topoLink = document.createElement("a");
+      topoLink.href = URL.createObjectURL(topoBlob);
+      topoLink.download = result.topo_filename;
+      topoLink.click();
+
+      const datumLink = document.createElement("a");
+      datumLink.href = URL.createObjectURL(datumBlob);
+      datumLink.download = result.datum_filename;
+      datumLink.click();
+
+      topoStatus.textContent = "Export complete.";
+    }
+
+    map.on("click", (event) => {
+      const targetLayers = [];
+      if (toggleClustered.checked) targetLayers.push("poles-clustered-layer");
+      if (toggleRaw.checked) targetLayers.push("poles-raw-layer");
+      const features = map.queryRenderedFeatures(event.point, { layers: targetLayers });
+      const activeCollection = clusteredPolesGeojson.features.length ? clusteredPolesGeojson : rawPolesGeojson;
+
+      if (features.length) {
+        const targetId = features[0].properties.id;
+        activeCollection.features = activeCollection.features.filter(f => f.properties.id !== targetId);
+      } else {
+        const coord = [event.lngLat.lng, event.lngLat.lat];
+        activeCollection.features.push({
+          type: "Feature",
+          geometry: { type: "Point", coordinates: coord },
+          properties: { confidence: 1.0, count: 1, id: `pole_${Date.now()}` }
+        });
+      }
+      refreshMap();
+    });
+
+    function updateTopoOnParameterChange() {
+      if (topoNodesGeojson.features.length > 0 && rowsGeojson.features.length > 0) {
+        const nodeSpacing = parseFloat(document.getElementById("topoEdgeDistance").value) || 2.0;
+        const extendDistance = parseFloat(document.getElementById("topoExtendDistance").value) || 0.0;
+        buildTopoVisualization(rowsGeojson, nodeSpacing, extendDistance);
+      }
+    }
+
+    runButton.addEventListener("click", runInference);
+    loadSessionButton.addEventListener("click", loadSessionFromCache);
+    applyButton.addEventListener("click", applyFilter);
+    generateRowsButton.addEventListener("click", generateRows);
+    exportButton.addEventListener("click", exportTopo);
+    updateTopoButton.addEventListener("click", updateTopoPreview);
+    saveGeoJSONButton.addEventListener("click", saveGeoJSON);
+
+    confidenceSlider.addEventListener("input", syncSliderText);
+    clusterSlider.addEventListener("input", syncSliderText);
+    toggleRaw.addEventListener("change", updatePoleVisibility);
+    toggleClustered.addEventListener("change", updatePoleVisibility);
+    toggleTopo.addEventListener("change", (e) => setTopoVisibility(e.target.checked));
+    document.getElementById("topoEdgeDistance").addEventListener("input", updateTopoOnParameterChange);
+
+    syncSliderText();
+    loadFolders();
+    loadModels();
+    loadSessions();
+  </script>
+</body>
+</html>

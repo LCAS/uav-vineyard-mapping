@@ -1,0 +1,9 @@
+backbone: resnet101
+batch_size: 2
+image_size: !!python/tuple
+- 640
+- 480
+lambda_reg: 10.0
+lambda_seg: 1.0
+lr: 0.0001
+sigma: 15

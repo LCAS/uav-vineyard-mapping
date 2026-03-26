@@ -1,0 +1,34 @@
+{
+  "image_path": "../../images/riseholme/august_2024/39_feet/DJI_20240802143112_0076_W.JPG",
+  "gcps": [
+    {
+      "_comment": "All GCPs from the image specified above",
+      "pixel_x": 2028,
+      "pixel_y": 1520,
+      "gps_lat": 53.26815000,
+      "gps_lon": -0.52457500,
+      "label": "Center Reference Point"
+    },
+    {
+      "pixel_x": 1500,
+      "pixel_y": 1000,
+      "gps_lat": 53.26818842,
+      "gps_lon": -0.52427737,
+      "label": "Pole A - Northwest"
+    },
+    {
+      "pixel_x": 2500,
+      "pixel_y": 1800,
+      "gps_lat": 53.26808532,
+      "gps_lon": -0.52428968,
+      "label": "Pole B - Southeast"
+    },
+    {
+      "pixel_x": 3200,
+      "pixel_y": 2200,
+      "gps_lat": 53.26803515,
+      "gps_lon": -0.52427742,
+      "label": "Pole C - South"
+    }
+  ]
+}

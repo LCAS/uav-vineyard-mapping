@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCP Image Annotator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+            padding: 20px;
+            min-height: 600px;
+        }
+
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .image-container {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            position: relative;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        #imageDisplay {
+            max-width: 100%;
+            max-height: 600px;
+            display: block;
+            position: relative;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: crosshair;
+            border: 2px solid #667eea;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marked-points {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .point-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ff6b6b;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 107, 107, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .point-marker.assigned {
+            border-color: #51cf66;
+            color: #51cf66;
+            background: rgba(81, 207, 102, 0.1);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+        }
+
+        .btn-danger {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #fa5252;
+        }
+
+        .btn-success {
+            background: #51cf66;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #40c057;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .panel {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #e9ecef;
+        }
+
+        .panel h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .image-list {
+            list-style: none;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+        }
+
+        .image-list li {
+            padding: 10px;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 13px;
+        }
+
+        .image-list li:hover {
+            background: #e9ecef;
+        }
+
+        .image-list li.active {
+            background: #667eea;
+            color: white;
+            border-bottom-color: #667eea;
+        }
+
+        .image-list li.annotated::before {
+            content: "✓ ";
+            color: #51cf66;
+            font-weight: bold;
+        }
+
+        .control-points-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .cp-button {
+            padding: 12px;
+            text-align: left;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 13px;
+        }
+
+        .cp-button:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+
+        .cp-button.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .cp-button strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .cp-button small {
+            display: block;
+            opacity: 0.8;
+            font-size: 11px;
+        }
+
+        .points-list {
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+        }
+
+        .point-item {
+            padding: 10px;
+            border-bottom: 1px solid #e9ecef;
+            background: white;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .point-item:last-child {
+            border-bottom: none;
+        }
+
+        .point-item strong {
+            color: #667eea;
+        }
+
+        .point-remove {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        .point-remove:hover {
+            background: #fa5252;
+        }
+
+        .none-button {
+            padding: 12px;
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .none-button:hover {
+            background: #ffeaa7;
+        }
+
+        .none-button.selected {
+            background: #ffc107;
+            color: white;
+        }
+
+        .alert {
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #495057;
+        }
+
+        .modal-content p {
+            margin-bottom: 10px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e9ecef;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Ground Control Point Annotator</h1>
+            <div class="stats">
+                <div>📁 Total Images: <span id="totalImages">0</span></div>
+                <div>✅ Annotated: <span id="annotatedImages">0</span></div>
+                <div>📍 Points: <span id="totalPoints">0</span></div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="image-section">
+                <div class="image-container" id="imageContainer">
+                    <div class="image-wrapper" id="imageWrapper">
+                        <img id="imageDisplay" src="" alt="Image">
+                        <canvas id="canvas"></canvas>
+                        <svg class="marked-points" id="pointsOverlay"></svg>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn-secondary" onclick="previousImage()">← Previous</button>
+                    <button class="btn-secondary" onclick="nextImage()">Next →</button>
+                    <button class="btn-danger" onclick="clearAllPoints()">Clear All</button>
+                    <button class="btn-success" onclick="exportImageGCPs()">Export GCPs</button>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="panel">
+                    <h3>📸 Images</h3>
+                    <ul class="image-list" id="imageList"></ul>
+                </div>
+
+                <div class="panel">
+                    <h3>🎯 Control Points</h3>
+                    <div class="alert alert-info">
+                        Click on the image, then select a control point or "None"
+                    </div>
+                    <button class="none-button" onclick="selectControlPoint(null)">⊘ None/Skip</button>
+                    <div class="control-points-list" id="controlPointsList"></div>
+                </div>
+
+                <div class="panel">
+                    <h3>📍 Points in Image</h3>
+                    <div class="points-list" id="pointsList"></div>
+                </div>
+
+                <button class="btn-primary" style="width: 100%;" onclick="exportAll()">
+                    💾 Export All GCPs
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export success modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>✅ Export Successful!</h2>
+            <p id="successMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-primary" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let images = [];
+        let currentImageIndex = 0;
+        let currentImageAnnotations = [];
+        let selectedControlPoint = null;
+        let canvas = null;
+        let ctx = null;
+        let imageDisplay = null;
+        let imageWrapper = null;
+
+        // Control points configuration
+        const controlPoints = {{ control_points | tojson }};
+
+        function encodeImageKey(key) {
+            return key.split('/').map(encodeURIComponent).join('/');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            imageDisplay = document.getElementById('imageDisplay');
+            imageWrapper = document.getElementById('imageWrapper');
+
+            console.log('Initializing annotator...');
+            console.log('Canvas element:', canvas);
+            console.log('Image display element:', imageDisplay);
+            console.log('Control points:', controlPoints);
+
+            // Load images
+            const response = await fetch('/api/images');
+            images = await response.json();
+            
+            console.log(`Loaded ${images.length} images`);
+            
+            renderImageList();
+            renderControlPoints();
+            updateStats();
+
+            imageWrapper.addEventListener('click', handleImageClick);
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                redrawPoints();
+            });
+            
+            if (images.length > 0) {
+                loadImage(0);
+            }
+        });
+
+        // Load image by index
+        async function loadImage(index) {
+            if (index < 0 || index >= images.length) return;
+            
+            currentImageIndex = index;
+            const filename = images[index];
+
+            const response = await fetch(`/api/image/${encodeImageKey(filename)}`);
+            const data = await response.json();
+            
+            // Load image
+            imageDisplay.src = data.data;
+            imageDisplay.onload = () => {
+                resizeCanvas();
+                currentImageAnnotations = data.annotations || [];
+                redrawPoints();
+                updatePointsList();
+            };
+            
+            // Update active state
+            document.querySelectorAll('.image-list li').forEach((li, idx) => {
+                li.classList.toggle('active', idx === index);
+            });
+            
+            updateStats();
+            updateProgress();
+        }
+
+        function resizeCanvas() {
+            const rect = imageDisplay.getBoundingClientRect();
+            const displayWidth = Math.round(rect.width);
+            const displayHeight = Math.round(rect.height);
+
+            if (!displayWidth || !displayHeight) {
+                return;
+            }
+
+            canvas.width = displayWidth;
+            canvas.height = displayHeight;
+            canvas.style.width = displayWidth + 'px';
+            canvas.style.height = displayHeight + 'px';
+
+            const svg = document.getElementById('pointsOverlay');
+            svg.setAttribute('width', displayWidth);
+            svg.setAttribute('height', displayHeight);
+
+            console.log(`Canvas resized to ${displayWidth}x${displayHeight}, Image natural size: ${imageDisplay.naturalWidth}x${imageDisplay.naturalHeight}`);
+        }
+
+        function handleImageClick(e) {
+            if (!imageDisplay.naturalWidth || !imageDisplay.naturalHeight) {
+                return;
+            }
+
+            const rect = imageDisplay.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+                return;
+            }
+
+            const scaleX = imageDisplay.naturalWidth / rect.width;
+            const scaleY = imageDisplay.naturalHeight / rect.height;
+            const imageX = x * scaleX;
+            const imageY = y * scaleY;
+
+            console.log(`Click detected at image (${x.toFixed(0)}, ${y.toFixed(0)}), image coords (${imageX.toFixed(0)}, ${imageY.toFixed(0)})`);
+
+            currentImageAnnotations.push({
+                x: imageX,
+                y: imageY,
+                control_point: selectedControlPoint,
+                temporary: true
+            });
+
+            console.log(`Points count: ${currentImageAnnotations.length}`);
+            redrawPoints();
+            updatePointsList();
+        }
+
+        // Select control point
+        function selectControlPoint(cpId) {
+            selectedControlPoint = cpId;
+            
+            document.querySelectorAll('.cp-button, .none-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            if (cpId === null) {
+                document.querySelector('.none-button').classList.add('selected');
+            } else {
+                document.querySelector(`[data-cp="${cpId}"]`).classList.add('selected');
+            }
+            
+            // Assign to last point if it's temporary
+            if (currentImageAnnotations.length > 0) {
+                const lastPoint = currentImageAnnotations[currentImageAnnotations.length - 1];
+                if (lastPoint.temporary) {
+                    lastPoint.control_point = cpId;
+                    lastPoint.temporary = false;
+                    redrawPoints();
+                    updatePointsList();
+                    saveAnnotations();
+                }
+            }
+        }
+
+        // Redraw points on canvas
+        function redrawPoints() {
+            const svg = document.getElementById('pointsOverlay');
+            svg.innerHTML = '';
+
+            if (!canvas.width || !canvas.height || !imageDisplay.naturalWidth || !imageDisplay.naturalHeight) {
+                return;
+            }
+            
+            // Set SVG dimensions
+            svg.setAttribute('width', canvas.width);
+            svg.setAttribute('height', canvas.height);
+            
+            // Scale factors
+            const scaleX = canvas.width / imageDisplay.naturalWidth;
+            const scaleY = canvas.height / imageDisplay.naturalHeight;
+            
+            currentImageAnnotations.forEach((point, idx) => {
+                const circleX = point.x * scaleX;
+                const circleY = point.y * scaleY;
+                
+                // Circle
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', circleX);
+                circle.setAttribute('cy', circleY);
+                circle.setAttribute('r', 15);
+                circle.setAttribute('fill', point.control_point ? 'rgba(81, 207, 102, 0.2)' : 'rgba(255, 107, 107, 0.2)');
+                circle.setAttribute('stroke', point.control_point ? '#51cf66' : '#ff6b6b');
+                circle.setAttribute('stroke-width', 3);
+                svg.appendChild(circle);
+                
+                // Number
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', circleX);
+                text.setAttribute('y', circleY);
+                text.setAttribute('text-anchor', 'middle');
+                text.setAttribute('dy', '0.3em');
+                text.setAttribute('font-weight', 'bold');
+                text.setAttribute('font-size', '18');
+                text.setAttribute('fill', point.control_point ? '#51cf66' : '#ff6b6b');
+                text.textContent = idx + 1;
+                svg.appendChild(text);
+            });
+        }
+
+        // Update points list
+        function updatePointsList() {
+            const list = document.getElementById('pointsList');
+            
+            if (currentImageAnnotations.length === 0) {
+                list.innerHTML = '<div style="padding: 10px; color: #999; text-align: center;">No points marked</div>';
+                return;
+            }
+            
+            list.innerHTML = currentImageAnnotations.map((point, idx) => {
+                const cpId = point.control_point;
+                const cpName = cpId ? controlPoints[cpId].name : 'None';
+                const cpLabel = cpId ? `Point ${cpName}` : 'Skipped';
+                
+                return `
+                    <div class="point-item">
+                        <div>
+                            <strong>Point ${idx + 1}</strong>: ${cpLabel}<br>
+                            <small>(${Math.round(point.x)}, ${Math.round(point.y)})</small>
+                        </div>
+                        <button class="point-remove" onclick="removePoint(${idx})">Remove</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Remove point
+        function removePoint(idx) {
+            currentImageAnnotations.splice(idx, 1);
+            redrawPoints();
+            updatePointsList();
+            saveAnnotations();
+        }
+
+        // Clear all points
+        function clearAllPoints() {
+            if (confirm('Clear all points in this image?')) {
+                currentImageAnnotations = [];
+                selectedControlPoint = null;
+                redrawPoints();
+                updatePointsList();
+                saveAnnotations();
+            }
+        }
+
+        // Save annotations
+        async function saveAnnotations() {
+            const filename = images[currentImageIndex];
+            await fetch(`/api/annotations/${encodeImageKey(filename)}`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({points: currentImageAnnotations})
+            });
+        }
+
+        // Render image list
+        function renderImageList() {
+            const list = document.getElementById('imageList');
+            list.innerHTML = images.map((img, idx) => 
+                `<li onclick="loadImage(${idx})" data-idx="${idx}">${img}</li>`
+            ).join('');
+        }
+
+        // Navigation
+        function nextImage() {
+            saveAnnotations();
+            if (currentImageIndex < images.length - 1) {
+                loadImage(currentImageIndex + 1);
+            }
+        }
+
+        function previousImage() {
+            saveAnnotations();
+            if (currentImageIndex > 0) {
+                loadImage(currentImageIndex - 1);
+            }
+        }
+
+        // Render control points
+        function renderControlPoints() {
+            const container = document.getElementById('controlPointsList');
+            let html = '';
+            
+            for (let cpId in controlPoints) {
+                const cp = controlPoints[cpId];
+                html += `
+                    <button class="cp-button" data-cp="${cpId}" onclick="selectControlPoint('${cpId}')">
+                        <strong>Point ${cp.name}</strong>
+                        <small>${cp.lat.toFixed(6)}, ${cp.lon.toFixed(6)}</small>
+                    </button>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        renderControlPoints();
+
+        // Export
+        async function exportImageGCPs() {
+            if (currentImageAnnotations.filter(p => p.control_point).length === 0) {
+                alert('No control points selected in this image');
+                return;
+            }
+            
+            const filename = images[currentImageIndex];
+            const response = await fetch(`/api/export/${encodeImageKey(filename)}`);
+            const data = await response.json();
+            
+            document.getElementById('successMessage').innerHTML = 
+                `✅ Exported <strong>${data.gcps_count}</strong> GCPs to<br><code>${data.path}</code>`;
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        async function exportAll() {
+            await saveAnnotations();
+            const response = await fetch('/api/export-all');
+            const data = await response.json();
+            
+            if (data.files.length === 0) {
+                alert('No annotated images to export');
+                return;
+            }
+            
+            document.getElementById('successMessage').innerHTML = 
+                `✅ Exported <strong>${data.count}</strong> image(s) to<br><code>${data.files[0]}</code>`;
+            document.getElementById('successModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+
+        // Statistics
+        async function updateStats() {
+            const response = await fetch('/api/stats');
+            const stats = await response.json();
+            
+            document.getElementById('totalImages').textContent = stats.total_images;
+            document.getElementById('annotatedImages').textContent = stats.annotated_images;
+            document.getElementById('totalPoints').textContent = stats.total_points;
+        }
+
+        function updateProgress() {
+            if (images.length === 0) return;
+            const progress = ((currentImageIndex + 1) / images.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') previousImage();
+        });
+    </script>
+</body>
+</html>

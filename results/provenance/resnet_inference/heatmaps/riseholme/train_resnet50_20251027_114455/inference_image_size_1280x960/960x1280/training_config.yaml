@@ -1,0 +1,24 @@
+amp_enabled: true
+backbone: resnet50
+batch_size: 8
+best_model_epoch: 8
+best_val_loss: 0.25417242012917995
+class_names:
+- background
+- pole
+- trunk
+- vine_row
+dataset_root: dataset_gps_masks/riseholme/full_res
+device: cuda
+early_stopping_patience: 20
+image_size: !!python/tuple
+- 1280
+- 960
+last_trained_epoch: 28
+learning_rate: 0.0001
+loss_function: CrossEntropyLoss
+model_output_path: resnet50_unet_image_size_640x480_batch_size_8.pth
+num_classes: 4
+num_epochs: 100
+optimizer: Adam
+timestamp: '2025-10-27 11:44:55'

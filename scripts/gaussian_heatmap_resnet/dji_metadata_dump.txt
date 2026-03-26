@@ -1,0 +1,193 @@
+---- ExifTool ----
+ExifTool Version Number         : 12.76
+---- System ----
+File Name                       : DJI_20250331152402_0103.JPG
+Directory                       : ../../images/agri_tech_centre/jojo
+File Size                       : 25 MB
+File Modification Date/Time     : 2025:04:30 10:44:31+01:00
+File Access Date/Time           : 2025:11:27 12:11:27+00:00
+File Inode Change Date/Time     : 2025:04:30 10:44:31+01:00
+File Permissions                : -rw-rw-r--
+---- File ----
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Exif Byte Order                 : Little-endian (Intel, II)
+Image Width                     : 8192
+Image Height                    : 5460
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+---- IFD0 ----
+Image Description               : default
+Make                            : DJI
+Camera Model Name               : ZenmuseP1
+Orientation                     : Horizontal (normal)
+X Resolution                    : 72
+Y Resolution                    : 72
+Resolution Unit                 : inches
+Software                        : 07.00.01.10
+Modify Date                     : 2025:03:31 15:24:02
+Y Cb Cr Positioning             : Co-sited
+XP Comment                      : 0.9.142
+XP Keywords                     : single
+---- ExifIFD ----
+Exposure Time                   : 1/1000
+F Number                        : 5.6
+Exposure Program                : Aperture-priority AE
+ISO                             : 570
+Sensitivity Type                : Recommended Exposure Index
+Exif Version                    : 0230
+Date/Time Original              : 2025:03:31 15:24:02
+Create Date                     : 2025:03:31 15:24:02
+Components Configuration        : Y, Cb, Cr, -
+Shutter Speed Value             : 1/1000
+Aperture Value                  : 5.6
+Exposure Compensation           : 0
+Max Aperture Value              : 2.8
+Metering Mode                   : Average
+Light Source                    : Daylight
+Flash                           : No Flash
+Focal Length                    : 35.0 mm
+Flashpix Version                : 0100
+Color Space                     : sRGB
+Exif Image Width                : 8192
+Exif Image Height               : 5460
+File Source                     : Digital Camera
+Scene Type                      : Directly photographed
+Exposure Mode                   : Auto
+White Balance                   : Manual
+Digital Zoom Ratio              : 1
+Focal Length In 35mm Format     : 35 mm
+Scene Capture Type              : Standard
+Gain Control                    : None
+Contrast                        : Normal
+Saturation                      : Normal
+Sharpness                       : Normal
+Device Setting Description      : (Binary data 4 bytes, use -b option to extract)
+Serial Number                   : 3XMDM87001MY0D
+Lens Info                       : 35mm f/2.8
+Lens Serial Number              : 04CY405G004P
+---- DJI ----
+AE Debug Info                   : (Binary data 4096 bytes, use -b option to extract)
+AE Histogram Info               : (Binary data 4096 bytes, use -b option to extract)
+AE Local Histogram              : (Binary data 2048 bytes, use -b option to extract)
+AE Live View Histogram Info     : (Binary data 4096 bytes, use -b option to extract)
+AE Live View Local Histogram    : (Binary data 2048 bytes, use -b option to extract)
+AWB Debug Info                  : (Binary data 4096 bytes, use -b option to extract)
+AF Debug Info                   : (Binary data 256 bytes, use -b option to extract)
+Histogram                       : disable,
+Xidiri                          : (Binary data 512 bytes, use -b option to extract)
+Gimbal Degree                   : 548,-899,0
+Flight Degree                   : 548,-56,31
+ADJ Debug Info                  : (Binary data 1024 bytes, use -b option to extract)
+Sensor ID                       : 3XMDM87001MY0D
+Flight Speed                    : 26,37,-7
+Hyperlaps Debug Info            : (Binary data 8 bytes, use -b option to extract)
+---- InteropIFD ----
+Interoperability Index          : R98 - DCF basic file (sRGB)
+Interoperability Version        : 0100
+---- GPS ----
+GPS Version ID                  : 2.3.0.0
+GPS Latitude Ref                : North
+GPS Latitude                    : 51 deg 35' 50.03"
+GPS Longitude Ref               : West
+GPS Longitude                   : 0 deg 58' 42.68"
+GPS Altitude Ref                : Above Sea Level
+GPS Altitude                    : 264.99 m
+GPS Status                      : Measurement Active
+GPS Map Datum                   : WGS-84
+---- IFD1 ----
+Compression                     : JPEG
+X Resolution                    : 72
+Y Resolution                    : 72
+Resolution Unit                 : inches
+Thumbnail Offset                : 25006
+Thumbnail Length                : 12681
+Thumbnail Image                 : (Binary data 12681 bytes, use -b option to extract)
+---- XMP-rdf ----
+About                           : DJI Meta Data
+---- XMP-xmp ----
+Modify Date                     : 2025:03:31 15:24:02
+Create Date                     : 2025:03:31 15:24:02
+---- XMP-tiff ----
+Make                            : DJI
+Camera Model Name               : ZenmuseP1
+---- XMP-dc ----
+Format                          : image/jpg
+---- XMP-drone-dji ----
+Version                         : 1.4
+Gps Status                      : RTK
+Altitude Type                   : RtkAlt
+GPS Latitude                    : 51 deg 35' 50.03" N
+GPS Longitude                   : 0 deg 58' 42.68" W
+Absolute Altitude               : +264.990
+Relative Altitude               : +24.603
+Gimbal Roll Degree              : +0.00
+Gimbal Yaw Degree               : +54.80
+Gimbal Pitch Degree             : -89.90
+Flight Roll Degree              : +3.10
+Flight Yaw Degree               : +54.80
+Flight Pitch Degree             : -5.60
+Flight X Speed                  : 2.6
+Flight Y Speed                  : 3.7
+Flight Z Speed                  : -0.7
+Cam Reverse                     : 0
+Gimbal Reverse                  : 0
+Self Data                       : 
+Rtk Flag                        : 50
+Rtk Std Lon                     : 0.00991
+Rtk Std Lat                     : 0.01316
+Rtk Std Hgt                     : 0.02185
+Rtk Diff Age                    : 1.80000
+Surveying Mode                  : 1
+UTC At Exposure                 : 2025:03:31 14:24:22.503370
+Shutter Type                    : Mechanical
+Shutter Count                   : 1006
+Camera Serial Number            : 3XMDM87001MY0D
+Lens Serial Number              : 04CY405G004P
+Drone Model                     : Matrice 350 RTK
+Drone Serial Number             : 1581F6GKB249500404T
+---- XMP-crs ----
+Version                         : 7.0
+Has Settings                    : False
+Has Crop                        : False
+Already Applied                 : False
+---- MPF0 ----
+MPF Version                     : 0100
+Number Of Images                : 2
+Image UID List                  : (Binary data 66 bytes, use -b option to extract)
+Total Frames                    : 1
+---- MPImage1 ----
+MP Image Flags                  : Representative image, Dependent parent image
+MP Image Format                 : JPEG
+MP Image Type                   : Baseline MP Primary Image
+MP Image Length                 : 24114078
+MP Image Start                  : 0
+Dependent Image 1 Entry Number  : 0
+Dependent Image 2 Entry Number  : 2
+---- MPImage2 ----
+MP Image Flags                  : Dependent child image
+MP Image Format                 : JPEG
+MP Image Type                   : Large Thumbnail (VGA equivalent)
+MP Image Length                 : 1064269
+MP Image Start                  : 24122270
+Dependent Image 1 Entry Number  : 0
+Dependent Image 2 Entry Number  : 0
+Preview Image                   : (Binary data 1064269 bytes, use -b option to extract)
+---- Composite ----
+Aperture                        : 5.6
+Image Size                      : 8192x5460
+Megapixels                      : 44.7
+Scale Factor To 35 mm Equivalent: 1.0
+Shutter Speed                   : 1/1000
+GPS Altitude                    : 264.9 m Above Sea Level
+GPS Latitude                    : 51 deg 35' 50.03" N
+GPS Longitude                   : 0 deg 58' 42.68" W
+Circle Of Confusion             : 0.030 mm
+Field Of View                   : 54.4 deg
+Focal Length                    : 35.0 mm (35 mm equivalent: 35.0 mm)
+GPS Position                    : 51 deg 35' 50.03" N, 0 deg 58' 42.68" W
+Hyperfocal Distance             : 7.28 m
+Light Value                     : 12.4

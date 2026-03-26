@@ -1,0 +1,3259 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524544,
+                    53.267984
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524601,
+                    53.268188
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524506,
+                    53.267988
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524563,
+                    53.268192
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524469,
+                    53.267991
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52453,
+                    53.268197
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524434,
+                    53.267994
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524492,
+                    53.2682
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524398,
+                    53.267997
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524453,
+                    53.268203
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524361,
+                    53.268
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524415,
+                    53.268206
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524325,
+                    53.268003
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524378,
+                    53.268209
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524287,
+                    53.268006
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52434,
+                    53.268213
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524248,
+                    53.26801
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_start",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524301,
+                    53.268216
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_end",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524551,
+                        53.26801
+                    ],
+                    [
+                        -0.524558,
+                        53.268036
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524558,
+                        53.268036
+                    ],
+                    [
+                        -0.524566,
+                        53.268062
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524566,
+                        53.268062
+                    ],
+                    [
+                        -0.524573,
+                        53.268088
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524573,
+                        53.268088
+                    ],
+                    [
+                        -0.52458,
+                        53.268114
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52458,
+                        53.268114
+                    ],
+                    [
+                        -0.524588,
+                        53.26814
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524588,
+                        53.26814
+                    ],
+                    [
+                        -0.524594,
+                        53.268162
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524544,
+                        53.267984
+                    ],
+                    [
+                        -0.524551,
+                        53.26801
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524594,
+                        53.268162
+                    ],
+                    [
+                        -0.524601,
+                        53.268188
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "0_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524544,
+                        53.267984
+                    ],
+                    [
+                        -0.524544,
+                        53.267984
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_0_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524601,
+                        53.268188
+                    ],
+                    [
+                        -0.524601,
+                        53.268188
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_0_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524513,
+                        53.268014
+                    ],
+                    [
+                        -0.52452,
+                        53.26804
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52452,
+                        53.26804
+                    ],
+                    [
+                        -0.524528,
+                        53.268066
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524528,
+                        53.268066
+                    ],
+                    [
+                        -0.524535,
+                        53.268092
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524535,
+                        53.268092
+                    ],
+                    [
+                        -0.524542,
+                        53.268118
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524542,
+                        53.268118
+                    ],
+                    [
+                        -0.52455,
+                        53.268144
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52455,
+                        53.268144
+                    ],
+                    [
+                        -0.524556,
+                        53.268166
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524506,
+                        53.267988
+                    ],
+                    [
+                        -0.524513,
+                        53.268014
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524556,
+                        53.268166
+                    ],
+                    [
+                        -0.524563,
+                        53.268192
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "1_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524506,
+                        53.267988
+                    ],
+                    [
+                        -0.524544,
+                        53.267984
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_0_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524506,
+                        53.267988
+                    ],
+                    [
+                        -0.524506,
+                        53.267988
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_1_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524563,
+                        53.268192
+                    ],
+                    [
+                        -0.524601,
+                        53.268188
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_0_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524563,
+                        53.268192
+                    ],
+                    [
+                        -0.524563,
+                        53.268192
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_1_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524477,
+                        53.268017
+                    ],
+                    [
+                        -0.524485,
+                        53.268043
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524485,
+                        53.268043
+                    ],
+                    [
+                        -0.524492,
+                        53.268069
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524492,
+                        53.268069
+                    ],
+                    [
+                        -0.5245,
+                        53.268095
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.5245,
+                        53.268095
+                    ],
+                    [
+                        -0.524507,
+                        53.268121
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524507,
+                        53.268121
+                    ],
+                    [
+                        -0.524515,
+                        53.268146
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524515,
+                        53.268146
+                    ],
+                    [
+                        -0.524522,
+                        53.268171
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524469,
+                        53.267991
+                    ],
+                    [
+                        -0.524477,
+                        53.268017
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524522,
+                        53.268171
+                    ],
+                    [
+                        -0.52453,
+                        53.268197
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "2_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524469,
+                        53.267991
+                    ],
+                    [
+                        -0.524506,
+                        53.267988
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_1_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524469,
+                        53.267991
+                    ],
+                    [
+                        -0.524469,
+                        53.267991
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_2_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52453,
+                        53.268197
+                    ],
+                    [
+                        -0.524563,
+                        53.268192
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_1_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52453,
+                        53.268197
+                    ],
+                    [
+                        -0.52453,
+                        53.268197
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_2_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524441,
+                        53.26802
+                    ],
+                    [
+                        -0.524448,
+                        53.268046
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524448,
+                        53.268046
+                    ],
+                    [
+                        -0.524456,
+                        53.268072
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524456,
+                        53.268072
+                    ],
+                    [
+                        -0.524463,
+                        53.268098
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524463,
+                        53.268098
+                    ],
+                    [
+                        -0.524471,
+                        53.268124
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524471,
+                        53.268124
+                    ],
+                    [
+                        -0.524478,
+                        53.26815
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524478,
+                        53.26815
+                    ],
+                    [
+                        -0.524485,
+                        53.268174
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524434,
+                        53.267994
+                    ],
+                    [
+                        -0.524441,
+                        53.26802
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524485,
+                        53.268174
+                    ],
+                    [
+                        -0.524492,
+                        53.2682
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "3_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524434,
+                        53.267994
+                    ],
+                    [
+                        -0.524469,
+                        53.267991
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_2_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524434,
+                        53.267994
+                    ],
+                    [
+                        -0.524434,
+                        53.267994
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_3_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524492,
+                        53.2682
+                    ],
+                    [
+                        -0.52453,
+                        53.268197
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_2_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524492,
+                        53.2682
+                    ],
+                    [
+                        -0.524492,
+                        53.2682
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_3_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524405,
+                        53.268023
+                    ],
+                    [
+                        -0.524412,
+                        53.268049
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524412,
+                        53.268049
+                    ],
+                    [
+                        -0.524419,
+                        53.268075
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524419,
+                        53.268075
+                    ],
+                    [
+                        -0.524426,
+                        53.268101
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524426,
+                        53.268101
+                    ],
+                    [
+                        -0.524433,
+                        53.268127
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524433,
+                        53.268127
+                    ],
+                    [
+                        -0.52444,
+                        53.268153
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52444,
+                        53.268153
+                    ],
+                    [
+                        -0.524446,
+                        53.268177
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524398,
+                        53.267997
+                    ],
+                    [
+                        -0.524405,
+                        53.268023
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524446,
+                        53.268177
+                    ],
+                    [
+                        -0.524453,
+                        53.268203
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "4_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524398,
+                        53.267997
+                    ],
+                    [
+                        -0.524434,
+                        53.267994
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_3_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524398,
+                        53.267997
+                    ],
+                    [
+                        -0.524398,
+                        53.267997
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_4_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524453,
+                        53.268203
+                    ],
+                    [
+                        -0.524492,
+                        53.2682
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_3_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524453,
+                        53.268203
+                    ],
+                    [
+                        -0.524453,
+                        53.268203
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_4_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524368,
+                        53.268026
+                    ],
+                    [
+                        -0.524375,
+                        53.268052
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524375,
+                        53.268052
+                    ],
+                    [
+                        -0.524382,
+                        53.268078
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524382,
+                        53.268078
+                    ],
+                    [
+                        -0.524388,
+                        53.268104
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524388,
+                        53.268104
+                    ],
+                    [
+                        -0.524395,
+                        53.26813
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524395,
+                        53.26813
+                    ],
+                    [
+                        -0.524402,
+                        53.268156
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524402,
+                        53.268156
+                    ],
+                    [
+                        -0.524408,
+                        53.26818
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524361,
+                        53.268
+                    ],
+                    [
+                        -0.524368,
+                        53.268026
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524408,
+                        53.26818
+                    ],
+                    [
+                        -0.524415,
+                        53.268206
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "5_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524361,
+                        53.268
+                    ],
+                    [
+                        -0.524398,
+                        53.267997
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_4_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524361,
+                        53.268
+                    ],
+                    [
+                        -0.524361,
+                        53.268
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_5_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524415,
+                        53.268206
+                    ],
+                    [
+                        -0.524453,
+                        53.268203
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_4_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524415,
+                        53.268206
+                    ],
+                    [
+                        -0.524415,
+                        53.268206
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_5_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524332,
+                        53.268029
+                    ],
+                    [
+                        -0.524339,
+                        53.268055
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524339,
+                        53.268055
+                    ],
+                    [
+                        -0.524345,
+                        53.268081
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524345,
+                        53.268081
+                    ],
+                    [
+                        -0.524352,
+                        53.268107
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524352,
+                        53.268107
+                    ],
+                    [
+                        -0.524358,
+                        53.268134
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524358,
+                        53.268134
+                    ],
+                    [
+                        -0.524365,
+                        53.26816
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524365,
+                        53.26816
+                    ],
+                    [
+                        -0.524371,
+                        53.268183
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524325,
+                        53.268003
+                    ],
+                    [
+                        -0.524332,
+                        53.268029
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524371,
+                        53.268183
+                    ],
+                    [
+                        -0.524378,
+                        53.268209
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "6_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524325,
+                        53.268003
+                    ],
+                    [
+                        -0.524361,
+                        53.268
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_5_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524325,
+                        53.268003
+                    ],
+                    [
+                        -0.524325,
+                        53.268003
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_6_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524378,
+                        53.268209
+                    ],
+                    [
+                        -0.524415,
+                        53.268206
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_5_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524378,
+                        53.268209
+                    ],
+                    [
+                        -0.524378,
+                        53.268209
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_6_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524294,
+                        53.268032
+                    ],
+                    [
+                        -0.524301,
+                        53.268058
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524301,
+                        53.268058
+                    ],
+                    [
+                        -0.524307,
+                        53.268084
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524307,
+                        53.268084
+                    ],
+                    [
+                        -0.524314,
+                        53.26811
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524314,
+                        53.26811
+                    ],
+                    [
+                        -0.52432,
+                        53.268137
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52432,
+                        53.268137
+                    ],
+                    [
+                        -0.524327,
+                        53.268163
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524327,
+                        53.268163
+                    ],
+                    [
+                        -0.524333,
+                        53.268187
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524287,
+                        53.268006
+                    ],
+                    [
+                        -0.524294,
+                        53.268032
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524333,
+                        53.268187
+                    ],
+                    [
+                        -0.52434,
+                        53.268213
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "7_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524287,
+                        53.268006
+                    ],
+                    [
+                        -0.524325,
+                        53.268003
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_6_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524287,
+                        53.268006
+                    ],
+                    [
+                        -0.524287,
+                        53.268006
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_7_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52434,
+                        53.268213
+                    ],
+                    [
+                        -0.524378,
+                        53.268209
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_6_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.52434,
+                        53.268213
+                    ],
+                    [
+                        -0.52434,
+                        53.268213
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_7_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524255,
+                        53.268036
+                    ],
+                    [
+                        -0.524262,
+                        53.268062
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_edge_0",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524262,
+                        53.268062
+                    ],
+                    [
+                        -0.524268,
+                        53.268088
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_edge_1",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524268,
+                        53.268088
+                    ],
+                    [
+                        -0.524275,
+                        53.268114
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_edge_2",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524275,
+                        53.268114
+                    ],
+                    [
+                        -0.524281,
+                        53.268141
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_edge_3",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524281,
+                        53.268141
+                    ],
+                    [
+                        -0.524288,
+                        53.268167
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_edge_4",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524288,
+                        53.268167
+                    ],
+                    [
+                        -0.524294,
+                        53.26819
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_edge_5",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524248,
+                        53.26801
+                    ],
+                    [
+                        -0.524255,
+                        53.268036
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_start_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524294,
+                        53.26819
+                    ],
+                    [
+                        -0.524301,
+                        53.268216
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "8_end_edge",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524248,
+                        53.26801
+                    ],
+                    [
+                        -0.524287,
+                        53.268006
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_7_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524248,
+                        53.26801
+                    ],
+                    [
+                        -0.524248,
+                        53.26801
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "start_to_8_node_start",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524301,
+                        53.268216
+                    ],
+                    [
+                        -0.52434,
+                        53.268213
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_7_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        -0.524301,
+                        53.268216
+                    ],
+                    [
+                        -0.524301,
+                        53.268216
+                    ]
+                ]
+            },
+            "properties": {
+                "topo_map_edge_id": "end_to_8_node_end",
+                "type": "LineString"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524551,
+                    53.26801
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524558,
+                    53.268036
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524566,
+                    53.268062
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524573,
+                    53.268088
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52458,
+                    53.268114
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524588,
+                    53.26814
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524594,
+                    53.268162
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "0_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524513,
+                    53.268014
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52452,
+                    53.26804
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524528,
+                    53.268066
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524535,
+                    53.268092
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524542,
+                    53.268118
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52455,
+                    53.268144
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524556,
+                    53.268166
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "1_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524477,
+                    53.268017
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524485,
+                    53.268043
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524492,
+                    53.268069
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.5245,
+                    53.268095
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524507,
+                    53.268121
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524515,
+                    53.268146
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524522,
+                    53.268171
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "2_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524441,
+                    53.26802
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524448,
+                    53.268046
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524456,
+                    53.268072
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524463,
+                    53.268098
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524471,
+                    53.268124
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524478,
+                    53.26815
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524485,
+                    53.268174
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "3_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524405,
+                    53.268023
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524412,
+                    53.268049
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524419,
+                    53.268075
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524426,
+                    53.268101
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524433,
+                    53.268127
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52444,
+                    53.268153
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524446,
+                    53.268177
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "4_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524368,
+                    53.268026
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524375,
+                    53.268052
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524382,
+                    53.268078
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524388,
+                    53.268104
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524395,
+                    53.26813
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524402,
+                    53.268156
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524408,
+                    53.26818
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "5_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524332,
+                    53.268029
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524339,
+                    53.268055
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524345,
+                    53.268081
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524352,
+                    53.268107
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524358,
+                    53.268134
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524365,
+                    53.26816
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524371,
+                    53.268183
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "6_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524294,
+                    53.268032
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524301,
+                    53.268058
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524307,
+                    53.268084
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524314,
+                    53.26811
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.52432,
+                    53.268137
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524327,
+                    53.268163
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524333,
+                    53.268187
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "7_node_6",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524255,
+                    53.268036
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_0",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524262,
+                    53.268062
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_1",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524268,
+                    53.268088
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_2",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524275,
+                    53.268114
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_3",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524281,
+                    53.268141
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_4",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524288,
+                    53.268167
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_5",
+                "type": "Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -0.524294,
+                    53.26819
+                ]
+            },
+            "properties": {
+                "topo_map_node_id": "8_node_6",
+                "type": "Point"
+            }
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+name: uav-vineyard-mapping
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - pyyaml
+  - pillow
+  - tqdm
+  - matplotlib
+  - networkx
+  - scikit-image
+  - scikit-learn
+  - shapely
+  - pyproj
+  - rasterio
+  - geopy
+  - geojson
+  - opencv
+  - flask
+  - requests
+  - pytorch
+  - torchvision
+  - pip:
+      - ultralytics
+      - sahi
+      - supervision
+      - roboflow
+      - inference-sdk
+      - pygmtools
